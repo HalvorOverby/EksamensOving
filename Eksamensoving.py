@@ -20,7 +20,7 @@ def spor(svar):
             svar=0
         svar=int(svar)
         if svar==7 or svar==12:
-            spor(input("Dette kapittelet er ikke pensum, velg et annet"))
+            spor(input("Dette kapittelet er ikke pensum, velg et annet\n"))
         else:
             if svar==0:
                 kapittel=svar
@@ -38,7 +38,7 @@ def spor(svar):
         show(kapittel,-current)
     else:
         os.startfile("Oppgaver\hmm.png") #må endres for mac
-        spor(input("Forstod ikke komandoen. "))
+        spor(input("Forstod ikke komandoen. Skriv noe annet\n"))
 
 def numberofexercises(kap):
     for i in range(1,50):
@@ -94,10 +94,10 @@ def done(kap,opg):
 
 def main():
     kapitler()
-    spor(input("Hvilket kapittel vil du jobbe med?(0-13) "))
-    spor(input("Du kan skrive:\n'lf' for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n"))
+    spor(input("Hvilket kapittel vil du jobbe med?(0-13)\n"))
+    spor(input("Du kan skrive:\n'lf'    for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n"))
     while True:
-        spor(input("Muligheter: lf, neste, gjort eller nummeret til et kapittel (skriv alle for shuffle)\n"))
+        spor(input("\nMuligheter:\n-'lf'\n-'neste'\n-'gjort'\n-Nummeret til et kapittel\n-'Alle' for shuffle\n"))
 recursion=0
 kapittel=0
 current=0
