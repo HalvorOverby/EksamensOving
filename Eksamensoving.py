@@ -10,10 +10,11 @@ def kapitler():
     for key, val in kapitteler.items():
         print(key, val)
     print()
+
 def spor(svar):
     global kapittel,shuffle
     svar=svar.lower()
-    kap="012345678910111213alle"
+    kap="0123456789101113alle"
     if svar in kap:
         if svar=="alle":
             svar=0
@@ -48,15 +49,16 @@ def numberofexercises(kap):
 
 def oppgave(kap):
     global current, recursion,kapittel,shuffle
-    if kap in [0,12,7] or shuffle==1:
-        kap=randint(1,13)
-        if kap==7 or kap==12:
-            oppgave(0)
+    if kap==0 or shuffle==1:
+        kap=randint(1,11)
+        if kap==7:
+            kap=13
+            shuffle=1
         else:
             kapittel=kap
             shuffle=1
     antall=numberofexercises(kap)
-    if antall==1:
+    if antall<=1:
         exercise=1
     else:
         exercise = randint(1, antall)
@@ -101,4 +103,3 @@ kapittel=0
 current=0
 shuffle=0
 main()
-
