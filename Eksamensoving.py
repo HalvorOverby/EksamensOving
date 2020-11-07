@@ -55,9 +55,7 @@ def oppgave(kap):
         else:
             kapittel=kap
             shuffle=1
-    print(kap)
     antall=numberofexercises(kap)
-    print(antall)
     if antall==1:
         exercise=1
     else:
