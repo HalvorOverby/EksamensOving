@@ -95,7 +95,7 @@ def done(kap,opg):
 def main():
     kapitler()
     spor(input("Hvilket kapittel vil du jobbe med?(0-13)\n"))
-    spor(input("Du kan skrive:\n'lf'    for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n"))
+    spor(input("\nDu kan skrive:\n'lf'    for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n"))
     while True:
         spor(input("\nMuligheter:\n-'lf'\n-'neste'\n-'gjort'\n-Nummeret til et kapittel\n-'Alle' for shuffle\n"))
 recursion=0
