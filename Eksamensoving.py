@@ -1,4 +1,4 @@
-import os #må endres for mac
+import subprocess
 from random import randint
 
 def kapitler():
@@ -37,13 +37,13 @@ def spor(svar):
     elif svar=="lf":
         show(kapittel,-current)
     else:
-        os.startfile("Oppgaver\hmm.png") #må endres for mac
+        subprocess.call(['open', "Oppgaver/hmm.png"])
         spor(input("Forstod ikke komandoen. Skriv noe annet\n"))
 
 def numberofexercises(kap):
     for i in range(1,50):
         try:
-            open(f"Oppgaver\kap{kap}opg{i}.PNG")
+            open(f"Oppgaver/kap{kap}opg{i}.PNG")
         except IOError:
             return i-1
 
@@ -76,7 +76,7 @@ def oppgave(kap):
 
 
 def show(kap,opg):
-    os.startfile(f"Oppgaver\kap{kap}opg{opg}.PNG") #må endres for mac
+    subprocess.call(['open', f"Oppgaver\kap{kap}opg{opg}.PNG"])
 
 def gjort(kap,opg):
     with open("Oppgaver\gjort.txt","a") as f:
