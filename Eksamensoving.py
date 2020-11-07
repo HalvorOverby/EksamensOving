@@ -76,15 +76,15 @@ def oppgave(kap):
 
 
 def show(kap,opg):
-    subprocess.call(['open', f"Oppgaver\kap{kap}opg{opg}.PNG"])
+    subprocess.call(['open', f"Oppgaver/kap{kap}opg{opg}.PNG"])
 
 def gjort(kap,opg):
-    with open("Oppgaver\gjort.txt","a") as f:
+    with open("Oppgaver/gjort.txt","a") as f:
         f.write(f"{kap},{opg} ")
 
 def done(kap,opg):
     hele=""
-    with open(f"Oppgaver\gjort.txt","r") as f:
+    with open(f"Oppgaver/gjort.txt","r") as f:
         hele=f.read()
         hele=hele.split()
         if f"{kap},{opg}" in hele:
