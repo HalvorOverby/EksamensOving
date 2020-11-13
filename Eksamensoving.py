@@ -12,7 +12,7 @@ def kapitler():
     print()
 
 def spor(svar):
-    global kapittel,shuffle
+    global kapittel,shuffle,antalloppgavergjort, antalloppgaverklart
     svar=svar.lower()
     kap="0123456789101113alle"
     if svar in kap:
@@ -31,11 +31,16 @@ def spor(svar):
             oppgave(kapittel)
     elif svar=="neste" or svar=="i do not understand this question":
         oppgave(kapittel)
+        antalloppgavergjort+=1
     elif svar=="gjort":
         gjort(kapittel,current)
         oppgave(kapittel)
+        antalloppgavergjort+=1
+        antalloppgaverklart+=1
     elif svar=="lf":
         show(kapittel,-current)
+    elif svar=="stats":
+        print(int(antalloppgaverklart/antalloppgavergjort*100),"%")
     else:
         subprocess.call(['open', "Oppgaver/hmm.png"])
         spor(input("Forstod ikke komandoen. Skriv noe annet\n"))
@@ -95,11 +100,13 @@ def done(kap,opg):
 def main():
     kapitler()
     spor(input("Hvilket kapittel vil du jobbe med?(0-13)\n"))
-    spor(input("\nDu kan skrive:\n'lf'    for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n"))
+    spor(input("\nDu kan skrive:\n'lf'    for løsningsforslag\n'neste' for en ny oppgave\n'gjort' for å markere en oppgave som gjort og få en ny\nEt tall for et nytt kapittel\n'Stats' for antall prosent riktige\n"))
     while True:
-        spor(input("\nMuligheter:\n-'lf'\n-'neste'\n-'gjort'\n-Nummeret til et kapittel\n-'Alle' for shuffle\n"))
+        spor(input("\nMuligheter:\n-'lf'\n-'neste'\n-'gjort'\n-Nummeret til et kapittel\n-'Alle' for shuffle\n-'Stats' for antall riktige\n"))
 recursion=0
 kapittel=0
 current=0
 shuffle=0
+antalloppgavergjort=0
+antalloppgaverklart=0
 main()
