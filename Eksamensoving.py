@@ -40,7 +40,9 @@ def spor(svar):
     elif svar=="lf":
         show(kapittel,-current)
     elif svar=="stats":
-        print(int(antalloppgaverklart/antalloppgavergjort*100),"%")
+        prosent=int(antalloppgaverklart/antalloppgavergjort*100)
+        print(prosent,"%")
+        print("Dette tilsvarer en",karakter(prosent)) 
     else:
         subprocess.call(['open', "Oppgaver/hmm.png"])
         spor(input("Forstod ikke komandoen. Skriv noe annet\n"))
@@ -51,7 +53,14 @@ def numberofexercises(kap):
             open(f"Oppgaver/kap{kap}opg{i}.PNG")
         except IOError:
             return i-1
-
+def karakter(prosent):
+    if prosent in range(89,101): return "A"
+    if prosent in range(77,89): return "B"
+    if prosent in range(65,77): return "C"
+    if prosent in range(53,65): return "D"
+    if prosent in range(41,53): return "E"
+    else: return "F"
+    
 def oppgave(kap):
     global current, recursion,kapittel,shuffle
     if kap==0 or shuffle==1:
